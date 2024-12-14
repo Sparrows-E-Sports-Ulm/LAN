@@ -1,0 +1,209 @@
+{
+    "categories": [
+        {
+            "name": "Pizza 🍕",
+            "dishes": [
+                {
+                    "name": "Pizza Margherita",
+                    "description": "",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pizza Caprese",
+                    "description": "Sauce and Cheese and Basil",
+                    "price": 10.30
+                }
+            ]
+        },
+        {
+            "name": "Pasta 🍝",
+            "dishes": [
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Pasta Carbonara",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                }
+            ]
+        },
+        {
+            "name": "Salat",
+            "dishes": [
+                {
+                    "name": "Salat",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Salat",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Salat",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Salat",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                },
+                {
+                    "name": "Salat",
+                    "description": "Sauce and Cheese",
+                    "price": 10.30
+                }
+            ]
+        }
+    ]
+}

@@ -7,8 +7,10 @@
     "watch": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@iconify-json/heroicons": "^1.2.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "edge-iconify": "^2.0.1",
     "edge.js": "^6.2.0",
     "express": "^4.21.2",
     "morgan": "~1.9.1"

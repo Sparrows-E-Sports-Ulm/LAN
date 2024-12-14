@@ -3,11 +3,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const { Edge } = require('edge.js');
+const iconify = require('edge-iconify');
+const heroIcons = require('@iconify-json/heroicons').icons;
 
 const app = express();
 
 // Setup edge for the view engine
-const edge = Edge.create({cache: true});
+const edge = Edge.create({cache: false});
+iconify.addCollection(heroIcons);
+edge.use(iconify.edgeIconify);
 edge.mount(app.settings.views)
 app.engine('edge', async (path, options, callback) => {
     callback(null, await edge.render(path, options));

@@ -1,0 +1,56 @@
+@let(format = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}))
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UULM LAN</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/order.css">
+</head>
+
+<body>
+    <div class="grid">
+        <header>
+            <h1>UULM LAN</h1>
+        </header>
+
+        <input class="search" placeholder="Suchen">
+
+        <div class="dishes">
+            @each(category in categories)
+
+            <h2>{{category.name}}</h2>
+
+            @each(dish in category.dishes)
+            <div class="dish">
+                <div>
+                    <h3>{{dish.name}}</h3>
+                    <p>{{format.format(dish.price)}}</p>
+                    <p>{{dish.description}}</p>
+                </div>
+                <div>
+                    <button onclick="addToBasket('{{category.name}}', '{{dish.name}}', {{dish.price}})">{{ svg('heroicons:plus-16-solid') }}</button>
+                </div>
+            </div>
+            @end
+
+
+            @end
+        </div>
+
+        <div class="summary-container">
+            <h2>Bestellung</h2>
+
+            <div class="summary">
+                <div id="basket"></div>
+            </div>
+
+            <button>Weiter</button>
+        </div>
+    </div>
+
+    <script src="/js/order.js"></script>
+</body>
+
+</html>
