@@ -4,6 +4,7 @@
   --primary: #38476f;
   --secondary: #a2aecd;
   --accent: #6e83bb;
+  --accent-light: #899ac8;
   --margin: 40px;
 }
 
@@ -17,6 +18,10 @@
 
 .accent {
   background-color: var(--accent);
+}
+
+.accent-light {
+  background-color: var(--accent-light);
 }
 
 /* anta-regular - latin */
@@ -50,4 +55,17 @@ button {
 
 button:hover {
   background-color: var(--secondary);
+}
+
+input {
+  padding: calc(var(--margin) * 0.5);
+  color: var(--text);
+  background-color: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+}
+
+input:focus {
+  outline-width: 0;
+  outline: none;
 }

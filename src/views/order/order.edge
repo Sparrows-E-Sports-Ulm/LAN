@@ -10,19 +10,33 @@
 </head>
 
 <body>
+    <div class="register" id="register" style="display: none;">
+        <div>
+            <h1>Bestellung</h1>
+            <div class="inputs">
+                <input id="name" placeholder="Name">
+                <input id="last-name" placeholder="Nachname">
+            </div>
+            <div class="buttons">
+                <button id="reg-back-btn" class="accent-light">Zurück</button>
+                <button id="reg-next-btn">Weiter</button>
+            </div>
+        </div>
+    </div>
+
     <div class="grid">
         <header>
             <h1>UULM LAN</h1>
         </header>
 
-        <input class="search" placeholder="Suchen">
+        <input class="search" id="search" placeholder="Suchen">
 
         <div class="dishes">
-            @each(category in categories)
+            @each((category, catIndex) in categories)
 
             <h2>{{category.name}}</h2>
 
-            @each(dish in category.dishes)
+            @each((dish, dishIndex) in category.dishes)
             <div class="dish">
                 <div>
                     <h3>{{dish.name}}</h3>
@@ -30,7 +44,7 @@
                     <p>{{dish.description}}</p>
                 </div>
                 <div>
-                    <button onclick="addToBasket('{{category.name}}', '{{dish.name}}', {{dish.price}})">{{ svg('heroicons:plus-16-solid') }}</button>
+                    <button onclick="addToBasket({{catIndex}}, '{{category.name}}', {{dishIndex}}, '{{dish.name}}', {{dish.price}})">{{ svg('heroicons:plus-16-solid') }}</button>
                 </div>
             </div>
             @end
@@ -42,11 +56,11 @@
         <div class="summary-container">
             <h2>Bestellung</h2>
 
-            <div class="summary">
+            <div>
                 <div id="basket"></div>
             </div>
 
-            <button>Weiter</button>
+            <button id="next-btn">Weiter</button>
         </div>
     </div>
 

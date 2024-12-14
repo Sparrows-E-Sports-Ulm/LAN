@@ -8,6 +8,57 @@ header>h1 {
     margin: 0;
 }
 
+.register {
+    background-color: rgba(64,64,64, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--primary);
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    width: 40%;
+}
+
+.register > div > h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.register > div > * {
+    margin: var(--margin);
+}
+
+.register .inputs > input {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.register .inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.register .buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.register button {
+    flex: 1;
+    padding: 16px;
+    font-size: 20px;
+}
+
 .grid {
     height: 100vh;
     width: 100vw;
@@ -20,18 +71,10 @@ header>h1 {
 
 .search {
     grid-area: 2 / 1 / 3 / 2;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: var(--margin);
     margin-right: var(--margin);
-    padding: calc(var(--margin) * 0.5);
-    color: var(--text);
-    background-color: var(--background);
-    border-radius: 8px;
-    border: 1px solid var(--primary);
-}
-
-.search:focus {
-    outline-width: 0;
-    outline: none;
 }
 
 .dishes {
@@ -80,6 +123,7 @@ header>h1 {
     margin: 0;
     border-radius: 64px;
     background-color: transparent;
+    color: var(--text);
     width: 64px;
     height: 64px;
     display: inline-flex;
@@ -104,7 +148,7 @@ header>h1 {
     grid-row-gap: 0px;
 }
 
-.summary {
+.summary-container > div {
     margin: var(--margin);
     overflow-y: scroll;
 }
