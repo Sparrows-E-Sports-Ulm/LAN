@@ -13,7 +13,16 @@ router.post('/submit', function(req, res, next) {
 });
 
 router.get('/status', function(req, res, next) {
-    res.render('order/status', {total: 10.40, reason: 'UL-LOL-TEST', account: '@lpfrenger'});
+    res.render('order/status', {total: 20.80, reason: 'UL-LOL-TEST', account: '@lpfrenger', basket : [
+      {
+      name: 'Caprese',
+      price: 10.40
+      },
+      {
+      name: 'Caprese',
+      price: 10.40
+      },
+    ]});
 });
 
 module.exports = router;

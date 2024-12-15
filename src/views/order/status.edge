@@ -15,10 +15,26 @@
     </header>    
 
     <div class="center-absolute">
-        <div class="panel">
-            <h1>Status</h1>
-            <h2 id="status-text" class="bad">Nicht Bezahlt</h2>
-            <p class="important">Bitte überweise <span>{{format.format(total)}}</span> mit dem Verwendungszwek <span>{{reason}}</span> auf das PayPal Konto <span>{{account}}</span></p>
+        <div class="row">
+            <div class="panel small">
+                <h1>Bestellung</h1>    
+                <div class="summary">
+                    @each(item in basket)
+                    <div>
+                        <p>{{item.name}}</p>
+                        <p>{{format.format(item.price)}}</p>
+                    </div>
+                    @end
+                </div>
+                <p>Total: {{format.format(total)}}</p>
+            </div>
+
+            <div class="panel big">
+                <h1>Status</h1>
+                <h2 id="status-text" class="bad">Nicht Bezahlt</h2>
+                <p class="important">Bitte überweise <span>{{format.format(total)}}</span> mit dem Verwendungszweck <span>{{reason}}</span> auf das PayPal Konto <span>{{account}}</span></p>
+            </div>
+            
         </div>
     </div>
 

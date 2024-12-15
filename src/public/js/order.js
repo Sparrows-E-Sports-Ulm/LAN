@@ -7,6 +7,8 @@ const nextButton = document.getElementById('next-btn');
 const searchInput = document.getElementById('search');
 const regisisteterView = document.getElementById('register');
 const regNextButton = document.getElementById('reg-next-btn');
+const nameTb = document.getElementById('name');
+const lastNameTb = document.getElementById('last-name');
 
 searchInput.oninput = () => {
     const query = searchInput.value.toLowerCase();
@@ -29,19 +31,26 @@ searchInput.oninput = () => {
 }
 
 nextButton.onclick = () => {
-    if(basket.length !== 0) {
+    if (basket.length !== 0) {
         regisisteterView.style.display = '';
     }
 }
 
 regNextButton.onclick = async () => {
+    if (nameTb.value.trim().length == 0 || lastNameTb.value.trim().length == 0) {
+        return;
+    }
+
     regNextButton.disabled = true;
     regNextButton.innerHTML = "...";
 
-    const body = basket.map(v => ({
-        category: v.catIndex,
-        dish: v.dishIndex
-    }));
+    const body = {
+        basket: basket.map(v => ({
+            category: v.catIndex,
+            dish: v.dishIndex
+        })),
+        name: `${nameTb.value} ${lastNameTb.value}`
+    };
 
     const res = await fetch('/order/submit', {
         method: 'post',

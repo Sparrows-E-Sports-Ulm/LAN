@@ -1,6 +1,19 @@
+.center-absolute .row {
+    display: flex;
+    justify-content: center;
+    gap: var(--margin);
+}
+
+.big {
+    flex: 2;
+}
+
+.small {
+    flex: 1;
+}
+
 .panel {
     text-align: center;
-    width: 30%;
 }
 
 .panel > * {
@@ -18,7 +31,7 @@
 
 .important {
     font-size: 24px;
-    max-width: 60%;
+    max-width: 80%;
     margin: var(--margin) auto;
     line-height: 40px;
 }
@@ -33,4 +46,18 @@
 
 .bad {
     color: #e36a00 !important;
+}
+
+.summary {
+    overflow-y: scroll;
+}
+
+.summary > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary p {
+    margin: 0;
 }
