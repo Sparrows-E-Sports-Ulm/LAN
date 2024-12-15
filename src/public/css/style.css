@@ -33,6 +33,15 @@
   src: url('../fonts/anta-v1-latin-regular.woff2') format('woff2');
 }
 
+header {
+  margin: var(--margin);
+}
+
+header>h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
 * {
   font-family: "Anta", Helvetica;
 }
@@ -68,4 +77,32 @@ input {
 input:focus {
   outline-width: 0;
   outline: none;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--primary);
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  width: 40%;
+}
+
+.panel h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.center-absolute {    
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

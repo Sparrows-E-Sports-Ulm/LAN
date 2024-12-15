@@ -13,7 +13,7 @@ router.post('/submit', function(req, res, next) {
 });
 
 router.get('/status', function(req, res, next) {
-    res.render('order/status');
+    res.render('order/status', {total: 10.40, reason: 'UL-LOL-TEST', account: '@lpfrenger'});
 });
 
 module.exports = router;

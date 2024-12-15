@@ -29,7 +29,9 @@ searchInput.oninput = () => {
 }
 
 nextButton.onclick = () => {
-    regisisteterView.style.display = '';
+    if(basket.length !== 0) {
+        regisisteterView.style.display = '';
+    }
 }
 
 regNextButton.onclick = async () => {
@@ -55,13 +57,13 @@ regNextButton.onclick = async () => {
         alert(`Es ist ein Fehler aufgetreten:\n${await res.text()}`);
     }
 
-    regNextButton.innerHTML = "Weiter";
+    regNextButton.innerHTML = "Bestellen & Bezahlen";
     regNextButton.disabled = false;
 }
 
 document.getElementById('reg-back-btn').onclick = () => {
     regisisteterView.style.display = 'none';
-    regNextButton.innerHTML = "Weiter";
+    regNextButton.innerHTML = "Bestellen & Bezahlen";
     regNextButton.disabled = false;
 }
 

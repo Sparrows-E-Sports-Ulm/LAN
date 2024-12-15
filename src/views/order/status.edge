@@ -1,0 +1,27 @@
+@let(format = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}))
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UULM LAN</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/status.css">
+</head>
+
+<body>
+    <header>
+        <h1>UULM LAN</h1>
+    </header>    
+
+    <div class="center-absolute">
+        <div class="panel">
+            <h1>Status</h1>
+            <h2 id="status-text" class="bad">Nicht Bezahlt</h2>
+            <p class="important">Bitte überweise <span>{{format.format(total)}}</span> mit dem Verwendungszwek <span>{{reason}}</span> auf das PayPal Konto <span>{{account}}</span></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

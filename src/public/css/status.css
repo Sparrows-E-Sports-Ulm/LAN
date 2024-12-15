@@ -1,0 +1,36 @@
+.panel {
+    text-align: center;
+    width: 30%;
+}
+
+.panel > * {
+    margin: var(--margin);
+}
+
+.panel h1 {
+    font-size: 38px;
+}
+
+.panel h2 {
+    font-size: 32px;
+    color: var(--accent);
+}
+
+.important {
+    font-size: 24px;
+    max-width: 60%;
+    margin: var(--margin) auto;
+    line-height: 40px;
+}
+
+.important > span {
+    background-color: var(--background);
+    padding: 2px;
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+    word-break: keep-all;
+}
+
+.bad {
+    color: #e36a00 !important;
+}

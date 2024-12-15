@@ -8,52 +8,31 @@ header>h1 {
     margin: 0;
 }
 
-.register {
+#register {
     background-color: rgba(64,64,64, 0.5);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
     backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.register > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--primary);
-    border-radius: 8px;
-    border: 1px solid var(--accent);
-    width: 40%;
-}
-
-.register > div > h1 {
-    font-size: 32px;
-    text-align: center;
-}
-
-.register > div > * {
+#register > div > * {
     margin: var(--margin);
 }
 
-.register .inputs > input {
+#register .inputs > input {
     margin-bottom: 0;
     margin-top: 0;
 }
 
-.register .inputs {
+#register .inputs {
     display: flex;
     flex-direction: column;
 }
 
-.register .buttons {
+#register .buttons {
     display: flex;
     gap: 8px;
 }
 
-.register button {
+#register button {
     flex: 1;
     padding: 16px;
     font-size: 20px;
