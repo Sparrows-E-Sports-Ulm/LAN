@@ -1,207 +1,532 @@
 {
     "categories": [
         {
-            "name": "Pizza 🍕",
+            "name": "Antipasti",
+            "dishes": [
+                {
+                    "name": "Pizzabrot (\u00d8 32cm)",
+                    "description": "mit Tomatensauce",
+                    "price": 6.9
+                },
+                {
+                    "name": "Pizza Pane Bianca (\u00d8 32cm)",
+                    "description": "mit Tomatenst\u00fccken, Knoblauch und Rosmarin",
+                    "price": 7.5
+                },
+                {
+                    "name": "Antipasti-Teller (scharf)",
+                    "description": "mit Tomaten, Mozzarella, italienischem Rohschinken, Zucchini, Oliven, scharfer Peperoni-Salami, Basilikum, italienischem Hirtenk\u00e4se und frischem Panini",
+                    "price": 14.9
+                },
+                {
+                    "name": "Caprese",
+                    "description": "mit Tomaten, Basilikum, italienischem B\u00fcffelmozzarella und frischem Panini",
+                    "price": 11.9
+                },
+                {
+                    "name": "Vitello Tonnato",
+                    "description": "Kalbfleischstreifen mit Thunfischsauce, Oliven, Kapern und frischem Panini",
+                    "price": 14.5
+                },
+                {
+                    "name": "Bruschetta alla Casa",
+                    "description": "Pizzabrot mit Bruschetta-Tomaten und Rucola",
+                    "price": 8.5
+                }
+            ]
+        },
+        {
+            "name": "Salate",
+            "dishes": [
+                {
+                    "name": "Insalata Verde",
+                    "description": "gr\u00fcner Salat",
+                    "price": 5.5
+                },
+                {
+                    "name": "Insalata Mista",
+                    "description": "gemischter Salat",
+                    "price": 6.5
+                },
+                {
+                    "name": "Insalata Caesare",
+                    "description": "mit gr\u00fcnem Salat, Kirschtomaten, italienischem Hirtenk\u00e4se, Croutons, Caesar-Dressing und einer Zutat nach Wahl, dazu frischer Panini",
+                    "price": 14.9
+                },
+                {
+                    "name": "Insalata Pomodoro",
+                    "description": "mit Tomaten, Basilikum und Zwiebeln, dazu frischer Panini",
+                    "price": 7.5
+                },
+                {
+                    "name": "Insalata Nizza",
+                    "description": "mit italienischem Mozzarella, Hinterschinken, Oliven, Paprika, Mais, gekochtem Ei und Prinzessbohnen, dazu frischer Panini",
+                    "price": 13.9
+                },
+                {
+                    "name": "Insalata Tonno",
+                    "description": "gemischter Salat mit Thunfisch, Oregano und Zwiebeln, dazu frischer Panini",
+                    "price": 13.9
+                },
+                {
+                    "name": "Insalata Vabene",
+                    "description": "mit gr\u00fcnem Salat, Gurken, Bohnen, Oliven, Radieschen, Kirschtomaten, Mais, Mozzarella, Avocado, Artischocken, Petersilie und einer Zutat nach Wahl, dazu frisches Panini",
+                    "price": 15.5
+                },
+                {
+                    "name": "Insalate Vabene Veggie",
+                    "description": "mit gr\u00fcnem Salat, Gurken, Bohnen, Oliven, Radieschen, Kirschtomaten, Mais, Mozzarella, Avocado, Artischocken und Petersilie, dazu frisches Panini",
+                    "price": 13.9
+                }
+            ]
+        },
+        {
+            "name": "Pizza",
             "dishes": [
                 {
                     "name": "Pizza Margherita",
                     "description": "",
-                    "price": 10.30
+                    "price": 10.0
+                },
+                {
+                    "name": "Pizza Funghi",
+                    "description": "mit frischen Egerlingen",
+                    "price": 11.0
+                },
+                {
+                    "name": "Pizza Prosciutto",
+                    "description": "mit Hinterschinken",
+                    "price": 11.5
+                },
+                {
+                    "name": "Pizza Salami",
+                    "description": "mit herzhafter Salami",
+                    "price": 11.5
+                },
+                {
+                    "name": "Pizza Capperi e Sardelle",
+                    "description": "mit Kapern, Sardellen und Oregano",
+                    "price": 12.5
+                },
+                {
+                    "name": "Pizza Mafia (scharf)",
+                    "description": "mit scharfer, italienischer Salami, Jalapenos und roten Zwiebeln",
+                    "price": 14.5
+                },
+                {
+                    "name": "Pizza Hawaii",
+                    "description": "mit Hinterschinken und Ananas",
+                    "price": 12.5
+                },
+                {
+                    "name": "Pizza Prosciutto e Funghi",
+                    "description": "mit frischen Egerlingen und Hinterschinken",
+                    "price": 12.5
+                },
+                {
+                    "name": "Pizza Tonno",
+                    "description": "mit Thunfisch, Zwiebeln und Oliven",
+                    "price": 13.9
+                },
+                {
+                    "name": "Pizza Vegetariana",
+                    "description": "mit verschiedenem Gem\u00fcse und Knoblauch",
+                    "price": 12.9
+                },
+                {
+                    "name": "Pizza Parma e Rucola",
+                    "description": "mit italienischem Hirtenk\u00e4se, Rucola, Knoblauch und italienischem Roh-Schinken",
+                    "price": 15.0
+                },
+                {
+                    "name": "Pizza Speziale",
+                    "description": "mit frischen Egerlingen, Salami und Hinterschinken",
+                    "price": 13.5
+                },
+                {
+                    "name": "Pizza Frutti di Mare",
+                    "description": "mit Meeresfr\u00fcchten und Knoblauch",
+                    "price": 13.9
+                },
+                {
+                    "name": "Pizza Quattro Formaggi",
+                    "description": "mit vier K\u00e4sesorten",
+                    "price": 14.5
+                },
+                {
+                    "name": "Pizza Rucola",
+                    "description": "mit italienischem Hartk\u00e4se, Rucola und Knoblauch",
+                    "price": 13.5
+                },
+                {
+                    "name": "Pizza Capricciosa",
+                    "description": "mit frischen Egerlingen, Hinterschinken, Artischocken und Oliven",
+                    "price": 14.5
+                },
+                {
+                    "name": "Pizza Pancetta Bianca",
+                    "description": "mit italienischem Speck, Mozzarella, Kirschtomaten, rohen Zwiebeln und Creme fraiche",
+                    "price": 14.5
+                },
+                {
+                    "name": "Pizza 4 Stagioni",
+                    "description": "mit Salami, Hinterschinken, frischen Egerlingen, Artischocken und Peperoni",
+                    "price": 13.5
+                },
+                {
+                    "name": "Pizza Melanzana",
+                    "description": "mit gegrillten Auberginen, frischem Basilikum und italienischem Hartk\u00e4se",
+                    "price": 12.9
+                },
+                {
+                    "name": "Pizza Noci Gorgonzola",
+                    "description": "mit Creme fraiche, Waln\u00fcssen, Gorgonzola und roten Zwiebeln",
+                    "price": 13.5
                 },
                 {
                     "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
+                    "description": "mit frischen Tomaten, italienischer Mozzarellakugel und frischem Basilikum",
+                    "price": 13.5
                 },
                 {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
+                    "name": "Pizza Gamberetti",
+                    "description": "mit Creme fraiche, Shrimps, Bruschetta-Tomaten und Knoblauch",
+                    "price": 13.9
                 },
                 {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
+                    "name": "Pizza Scampi e Funghi",
+                    "description": "mit Mozzarella, Garnelen, frischen Egerlingen, Rucola und Knoblauch",
+                    "price": 15.0
                 },
                 {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
+                    "name": "Pizza Genovese",
+                    "description": "mit Mozzarella, Zwiebeln, Oliven, frischem Basilikum, Oregano und Tomaten",
+                    "price": 12.5
                 },
                 {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
+                    "name": "Pizza Diavolo (scharf)",
+                    "description": "mit Mozzarella, scharfer, italienischer Salami und Oregano",
+                    "price": 13.0
                 },
                 {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
-                },
-                {
-                    "name": "Pizza Caprese",
-                    "description": "Sauce and Cheese and Basil",
-                    "price": 10.30
+                    "name": "Pizza BBQ Tacchino",
+                    "description": "mit Mozzarella, Barbecue Sauce, Putenbruststreifen, rote Zwiebeln, Jalapenos, Knoblauch und Petersilie",
+                    "price": 14.9
                 }
             ]
         },
         {
-            "name": "Pasta 🍝",
+            "name": "Vegane Pizza",
             "dishes": [
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Margherita",
+                    "description": "",
+                    "price": 10.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Funghi",
+                    "description": "mit frischen Egerlingen",
+                    "price": 11.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Rucola",
+                    "description": "mit frischem Rucola und Knoblauch",
+                    "price": 12.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Spinaci",
+                    "description": "mit Spinat und Knoblauch",
+                    "price": 11.5
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Funghi Rucola Bianca",
+                    "description": "mit frischen Egerlingen, Rucola und Knoblauch",
+                    "price": 12.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Ananas",
+                    "description": "mit Ananas",
+                    "price": 11.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Napoli",
+                    "description": "mit Kirschtomaten, frischem Basilikum und Oliven\u00f6l",
+                    "price": 11.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Melanzana",
+                    "description": "mit gegrillten Auberginen, Kirschtomaten und frischem Basilikum",
+                    "price": 12.5
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Genovese",
+                    "description": "mit Zwiebeln, Oliven, frischem Basilikum und Oregano",
+                    "price": 12.9
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Broccoli",
+                    "description": "mit Broccoli",
+                    "price": 11.5
                 },
                 {
-                    "name": "Pasta Carbonara",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Vegane Pizza Vegetariana",
+                    "description": "mit verschiedenem Gem\u00fcse und Knoblauch",
+                    "price": 13.0
+                },
+                {
+                    "name": "Vegane Pizza Pomodori Secchi / Bianca",
+                    "description": "mit Knoblauch\u00f6l, getrocknete Tomaten, Kichererbsen, Artischocken und frischem Basilikum",
+                    "price": 13.0
+                },
+                {
+                    "name": "Vegane Pizza Tofu",
+                    "description": "mit getrocknete Tomaten, Kichererbsen, ger\u00e4ucherter Tofu, frischem Basilikum und Knoblauch\u00f6l",
+                    "price": 13.0
                 }
             ]
         },
         {
-            "name": "Salat",
+            "name": "Party-Pizza",
             "dishes": [
                 {
-                    "name": "Salat",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Party-Pizza Margherita",
+                    "description": "",
+                    "price": 28.0
                 },
                 {
-                    "name": "Salat",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Party-Pizza Uno",
+                    "description": "mit vier Zutaten nach Wahl",
+                    "price": 33.5
                 },
                 {
-                    "name": "Salat",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Party-Pizza Due",
+                    "description": "mit acht Zutaten nach Wahl",
+                    "price": 37.0
+                }
+            ]
+        },
+        {
+            "name": "Panino",
+            "dishes": [
+                {
+                    "name": "Panino Caprese",
+                    "description": "mit Tomatenpesto, frischem Basilikum, Tomaten, Mozzarella und Oliven\u00f6l",
+                    "price": 8.5
                 },
                 {
-                    "name": "Salat",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Panino Calabrese (scharf)",
+                    "description": "mit Tomatenpesto, italienischem B\u00fcffel-Mozzarella, scharfer italienischer Salami, frischem Basilikum und Oliven\u00f6l",
+                    "price": 10.5
                 },
                 {
-                    "name": "Salat",
-                    "description": "Sauce and Cheese",
-                    "price": 10.30
+                    "name": "Panino Nizza",
+                    "description": "mit Thunfischsauce, roten Zwiebeln, Ei, Rucola, Paprika und Thunfisch",
+                    "price": 9.9
+                }
+            ]
+        },
+        {
+            "name": "Pasta",
+            "dishes": [
+                {
+                    "name": "Spaghetti Pomodoro e Basilico",
+                    "description": "mit Basilikum, Knoblauch, Zwiebeln, italienischem Hartk\u00e4se und hausgemachter Sugo di Pomodori",
+                    "price": 12.5
+                },
+                {
+                    "name": "Gnocchi Scampi (leicht scharf)",
+                    "description": "mit Knoblauch, Piccante, Garnelen und Aurorasauce",
+                    "price": 14.5
+                },
+                {
+                    "name": "Penne Arrabbiata (leicht scharf)",
+                    "description": "mit Knoblauch, Piccante und hausgemachter Sugo di Pomodori",
+                    "price": 12.5
+                },
+                {
+                    "name": "Spaghetti Carbonara",
+                    "description": "mit Speck, Ei, italienischem Hartk\u00e4se und Sahnesauce",
+                    "price": 12.9
+                },
+                {
+                    "name": "Tortelloni Prosciutto",
+                    "description": "mit Zwiebeln, Hinterschinken, italienischem Hartk\u00e4se und Sahnesauce",
+                    "price": 13.9
+                },
+                {
+                    "name": "Strozzapreti Tacchino e Paprica",
+                    "description": "mit Zwiebeln, Paprika, Rosmarin, Putenfleisch und Aurorasauce",
+                    "price": 14.9
+                },
+                {
+                    "name": "Spaghetti Ragu di Manzo",
+                    "description": "mit feinem Rinderfleischragout, italienischem Hartk\u00e4se und Bolognesesauce",
+                    "price": 13.9
+                },
+                {
+                    "name": "Penne 4 Formaggi",
+                    "description": "mit vier verschiedenen K\u00e4sesorten und Sahnesauce",
+                    "price": 13.9
+                },
+                {
+                    "name": "Gnocchi Caprese",
+                    "description": "mit Knoblauch, Kirschtomaten, Mozzarella, frischem Basilikum und hausgemachter Sugo di Pomodori",
+                    "price": 12.9
+                },
+                {
+                    "name": "Tagliatelle Salsiccia e Spinaci (leicht scharf)",
+                    "description": "mit scharfer Peperoni-Salami, Spinat, Zwiebeln, italienischem Hartk\u00e4se und Sahnesauce",
+                    "price": 14.5
+                }
+            ]
+        },
+        {
+            "name": "Desserts",
+            "dishes": [
+                {
+                    "name": "Panna Cotta",
+                    "description": "mit Erdbeersauce",
+                    "price": 5.5
+                },
+                {
+                    "name": "Tartufo Nero",
+                    "description": "Eisspezialit\u00e4t aus Schokoladen-Eis, Haselnuss-Eis, hausgemachter Erdbeersauce und Kakao",
+                    "price": 6.0
+                },
+                {
+                    "name": "Tiramisu",
+                    "description": "mit abwechselnden Schichten von L\u00f6ffelbiskuits und einer Creme aus Mascarpone",
+                    "price": 6.5
+                },
+                {
+                    "name": "Eisbecher Cookies",
+                    "description": "regionales Milcheis im 160ml Becher",
+                    "price": 3.7
+                },
+                {
+                    "name": "Eisbecher Joghurt-Maracuja",
+                    "description": "regionales Milcheis im 160ml Becher",
+                    "price": 3.7
+                },
+                {
+                    "name": "Eisbecher Pistazie",
+                    "description": "regionales Milcheis im 160ml Becher",
+                    "price": 3.9
+                }
+            ]
+        },
+        {
+            "name": "Alkoholfreie Getr\u00e4nke",
+            "dishes": [
+                {
+                    "name": "Mineralwasser still 1,0l",
+                    "description": "",
+                    "price": 2.6
+                },
+                {
+                    "name": "Mineralwasser mit Kohlens\u00e4ure 1,0l",
+                    "description": "",
+                    "price": 2.6
+                },
+                {
+                    "name": "Red Bull 0,25l",
+                    "description": "",
+                    "price": 2.75
+                },
+                {
+                    "name": "Coca-Cola 1,0l (MEHRWEG)",
+                    "description": "Coca-Cola steht f\u00fcr einzigartigen Geschmack, Erfrischung und Momente voller Lebensfreude. Die 1,0l PET Mehrwegflasche f\u00fcr die perfekte Erfrischung f\u00fcr jeden Tag - allein oder zu zweit.",
+                    "price": 3.35
+                },
+                {
+                    "name": "Fanta Orange 1,0l (MEHRWEG)",
+                    "description": "Trinke Fanta. Lebe bunter. Spritzig erfrischend begleitet die originale Fanta Orange jede Lebenssituation und macht jetzt noch mehr Spa\u00df.",
+                    "price": 3.35
+                },
+                {
+                    "name": "Sprite 1,0l (MEHRWEG)",
+                    "description": "Bist du bereit f\u00fcr Sprite? Die einzigartige Formel aus gr\u00fcnen Limetten und sonnengelben Zitronen erfrischt dich maximal.",
+                    "price": 3.35
+                },
+                {
+                    "name": "Mezzo Mix 1,0l (MEHRWEG)",
+                    "description": "Mixt euch eine gute Zeit mit Mezzo Mix, dem erfrischend-leckeren Kuss aus Cola und Orange.",
+                    "price": 3.35
+                },
+                {
+                    "name": "Coca-Cola Zero Sugar 1,0l (MEHRWEG)",
+                    "description": "Keine Kalorien. Null Zucker. F\u00fcr alle Coke Liebhaber, die beim Geschmack keinen Kompromiss eingehen wollen.",
+                    "price": 3.35
+                },
+                {
+                    "name": "Lift Apfelschorle 1,0l (MEHRWEG)",
+                    "description": "Die Lift Apfelschorle begeistert mit ihrem einmaligen Geschmack und maximaler Erfrischung.",
+                    "price": 3.35
+                },
+                {
+                    "name": "Paulaner Hefe-Wei\u00dfbier alkoholfrei 0,5l",
+                    "description": "",
+                    "price": 3.42
+                }
+            ]
+        },
+        {
+            "name": "Alkoholische Getr\u00e4nke",
+            "dishes": [
+                {
+                    "name": "Hefeweizen 0,5l",
+                    "description": "",
+                    "price": 3.42
+                },
+                {
+                    "name": "Radler 0,5l",
+                    "description": "",
+                    "price": 3.42
+                },
+                {
+                    "name": "Paulaner M\u00fcnchner hell 0,5l",
+                    "description": "",
+                    "price": 3.42
+                },
+                {
+                    "name": "Paulaner Hefe-Wei\u00dfbier naturtr\u00fcb 0,5l",
+                    "description": "",
+                    "price": 3.42
+                },
+                {
+                    "name": "Paulaner Natur Radler 0,5l",
+                    "description": "",
+                    "price": 3.42
+                },
+                {
+                    "name": "Pagus Bisano Lugana DOC 0,75l",
+                    "description": "der Pagus Bisano Lugana DOC kommt strohgelb, mit goldenen Reflexen, ins Glas. Ein fruchtig-hefiges Bouquet weist auf einen jungen, frischen Fr\u00fchlingsboten hin.",
+                    "price": 17.5
+                },
+                {
+                    "name": "I Tratturi Bianco Salento IGT 0,75l",
+                    "description": "von Feudi di San Marzano aus Apulien, aus 95% Verdeca- und 5% Malvasia Bianca Trauben gekeltert. Seine Farbe ist strohgelb mit goldenen Reflexen. Sein Bouquet ist intensiv und erinnert an reife Pfirsiche mit Noten von Mandarinen.",
+                    "price": 13.9
+                },
+                {
+                    "name": "Rosso Passo Veneto IGT 0,75l",
+                    "description": "der Rosso Passo ist einer der beliebtesten Rotweine der Cantine Lenotti aus Bardolino. Eine wunderbar harmonische Cuv\u00e9e aus Merlot und Sangiovese. Ein typischer Roter vom Gardasee und ein echter Allrounder.",
+                    "price": 14.9
+                },
+                {
+                    "name": "Pagus Bisano Valpolicella Ripasso DOC 0,75l",
+                    "description": "in kr\u00e4ftig rubinroter Farbe erf\u00fcllt der Pagus Bisano Valpolicella Ripasso DOC Dein Glas. Sofort entfaltet sich ein fein strukturiertes Bouquet, das an dunkle, wilde Beeren denken l\u00e4sst.",
+                    "price": 18.0
+                },
+                {
+                    "name": "Pagus Bisano Bardolino DOC 0,75l",
+                    "description": "in leuchtend rubinrotem Kleid beehrt der Pagus Bisano Bardolino DOC Dein Glas. Der Nase offenbart sich eine zarte Aromatik nach Kirschen und roten Beeren.",
+                    "price": 16.0
+                },
+                {
+                    "name": "Pagus Bisano Soave DOC 0,75l",
+                    "description": "frischer, fruchtiger Wein, sch\u00f6ner Schmelz, langer Abgang.",
+                    "price": 16.0
                 }
             ]
         }

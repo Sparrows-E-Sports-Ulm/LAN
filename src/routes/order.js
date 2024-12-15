@@ -1,28 +1,48 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
 const menu = require('../models/vabene.json');
+const validate = require('jsonschema').validate;
+const submitSchema = require('../models/order-submit-schema.json');
 
 router.get('/', function(req, res, next) {
   res.render('order/order', menu);
 });
 
 router.post('/submit', function(req, res, next) {
-  console.log(JSON.stringify(req.body));
-  res.status(500).send('not implemented yet');
+  if(!validate(req.body, submitSchema, {required: true}).valid) {
+    console.log(req.body);
+    res.status(400).send('Bad Request');
+    return;
+  }
+
+  for(const item of req.body.basket) {
+    if(menu.categories[item.category] === undefined || menu.categories[item.category].dishes[item.dish] === undefined) {
+      res.status(400).send('Bad Request (Unknown Menu Item)');
+      return;
+    }
+  }
+
+  req.session.basket = req.body.basket;
+  req.session.name = req.body.name;
+
+  res.status(200).send();
 });
 
 router.get('/status', function(req, res, next) {
-    res.render('order/status', {total: 20.80, reason: 'UL-LOL-TEST', account: '@lpfrenger', basket : [
-      {
-      name: 'Caprese',
-      price: 10.40
-      },
-      {
-      name: 'Caprese',
-      price: 10.40
-      },
-    ]});
+  const basket = req.session.basket;
+  if(basket === undefined || basket.length === 0) {
+    res.redirect('/order');
+    return;
+  }
+  
+  const friendlyBasket = basket.map(v => ({
+    name: menu.categories[v.category].dishes[v.dish].name,
+    price: menu.categories[v.category].dishes[v.dish].price
+  }));
+
+  const total = friendlyBasket.reduce((acc, curr) => acc + curr.price, 0);
+
+  res.render('order/status', {total: total, reason: 'UL-LOL-TEST', account: '@lpfrenger', basket : friendlyBasket});
 });
 
 module.exports = router;
