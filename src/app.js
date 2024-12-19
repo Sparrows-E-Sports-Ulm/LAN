@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -10,7 +11,7 @@ const heroIcons = require('@iconify-json/heroicons').icons;
 const app = express();
 
 // Setup edge for the view engine
-const edge = Edge.create({cache: false});
+const edge = Edge.create({cache: process.env.NODE_ENV !== 'development'});
 iconify.addCollection(heroIcons);
 edge.use(iconify.edgeIconify);
 edge.mount(app.settings.views)
@@ -25,11 +26,10 @@ app.set('view engine', 'edge');
 app.use(session({
     resave: true,
     saveUninitialized: true,
-    secret: 'amogus'
+    secret: process.env.COOKIE_SECRET
 }))
 app.use(logger('dev'));
 app.use(express.json());
-//app.use(express.urlencoded({ extended: false }));
 
 // Setup Static Assets
 app.use(express.static(path.join(__dirname, 'public')));

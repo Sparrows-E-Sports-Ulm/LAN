@@ -42,7 +42,7 @@ router.get('/status', function(req, res, next) {
 
   const total = friendlyBasket.reduce((acc, curr) => acc + curr.price, 0);
 
-  res.render('order/status', {total: total, reason: 'UL-LOL-TEST', account: '@lpfrenger', basket : friendlyBasket});
+  res.render('order/status', {total: total, reason: 'UL-LOL-TEST', account: process.env.PAYPAL_ACC, basket : friendlyBasket});
 });
 
 module.exports = router;
