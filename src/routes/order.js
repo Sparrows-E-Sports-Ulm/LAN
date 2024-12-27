@@ -5,7 +5,16 @@ const validate = require('jsonschema').validate;
 const submitSchema = require('../models/order-submit-schema.json');
 
 router.get('/', function(req, res, next) {
-  res.render('order/order', menu);
+  const basket = req.session.basket ?? [];
+  const friendlyBasket = basket.map(v => ({
+    dishIndex: v.dish,
+    catIndex: v.category,
+    category: menu.categories[v.category].name,
+    dish: menu.categories[v.category].dishes[v.dish].name,
+    price: menu.categories[v.category].dishes[v.dish].price
+  }));
+
+  res.render('order/order', {menu: menu, basket: friendlyBasket});
 });
 
 router.post('/submit', function(req, res, next) {
@@ -42,7 +51,7 @@ router.get('/status', function(req, res, next) {
 
   const total = friendlyBasket.reduce((acc, curr) => acc + curr.price, 0);
 
-  res.render('order/status', {total: total, reason: 'UL-LOL-TEST', account: process.env.PAYPAL_ACC, basket : friendlyBasket});
+  res.render('order/status', {total: total, reason: 'UL-LOL-TEST', account: process.env.PAYPAL_ACC, basket: friendlyBasket});
 });
 
 module.exports = router;

@@ -19,8 +19,8 @@
             </div>
             <p>Achtung: Nach dem Bezahlen kann die Bestellung nicht mehr verändert werden!</p>
             <div class="buttons">
-                <button id="reg-back-btn" class="accent-light">Zurück</button>
-                <button id="reg-next-btn">Bestellen & Bezahlen</button>
+                <button id="reg-back-btn">Zurück</button>
+                <button id="reg-next-btn" class="accent-light">Bestellen & Bezahlen</button>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
         <input class="search" id="search" placeholder="Suchen">
 
         <div class="dishes">
-            @each((category, catIndex) in categories)
+            @each((category, catIndex) in menu.categories)
 
             <h2>{{category.name}}</h2>
 
@@ -64,8 +64,18 @@
             <button id="next-btn">Weiter</button>
         </div>
     </div>
+    {{inspect(basket)}}
+    {{inspect(menu.categories)}}
 
     <script src="/js/order.js"></script>
+
+    <script id="loader">
+        @each(item in basket) 
+            addToBasket({{item.catIndex}}, '{{item.category}}', {{item.dishIndex}}, '{{item.dish}}', {{item.price}});
+        @end
+
+        document.getElementById('loader').remove();
+    </script>
 </body>
 
 </html>
