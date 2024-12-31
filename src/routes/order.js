@@ -4,9 +4,18 @@ const menu = require('../models/vabene.json');
 const validate = require('jsonschema').validate;
 const submitSchema = require('../models/order-submit-schema.json');
 
-router.get('/', function(req, res, next) {
-  const basket = req.session.basket ?? [];
-  const friendlyBasket = basket.map(v => ({
+const BasketModel = require('../models/basketModel');
+
+router.get('/', async function(req, res, next) {
+  const basket = await BasketModel.findById(req.session.basket);
+  const items = basket ? basket.items : [];
+
+  if(basket && basket.payed) {
+    res.redirect('/order/status');
+    return;
+  }
+
+  const friendlyBasket = items.map(v => ({
     dishIndex: v.dish,
     catIndex: v.category,
     category: menu.categories[v.category].name,
@@ -17,7 +26,18 @@ router.get('/', function(req, res, next) {
   res.render('order/order', {menu: menu, basket: friendlyBasket});
 });
 
-router.post('/submit', function(req, res, next) {
+router.post('/submit', async function(req, res, next) {
+  let basket = await BasketModel.findById(req.session.basket);
+  if(!basket) {
+    basket = new BasketModel();
+    basket.reason = process.env.PAYPAL_PREFIX;
+  }
+
+  if(basket.payed) {
+    res.redirect('/order/status');
+    return;
+  }
+
   if(!validate(req.body, submitSchema, {required: true}).valid) {
     console.log(req.body);
     res.status(400).send('Bad Request');
@@ -31,27 +51,32 @@ router.post('/submit', function(req, res, next) {
     }
   }
 
-  req.session.basket = req.body.basket;
-  req.session.name = req.body.name;
+  basket.name = req.body.name;
+  basket.items = req.body.basket;
+  basket.payed = false;
+  await basket.save();
+
+  req.session.basket = basket._id;
 
   res.status(200).send();
 });
 
-router.get('/status', function(req, res, next) {
-  const basket = req.session.basket;
-  if(basket === undefined || basket.length === 0) {
+router.get('/status', async function(req, res, next) {
+  const basket = await BasketModel.findById(req.session.basket);
+  
+  if(!basket || basket.length === 0) {
     res.redirect('/order');
     return;
   }
   
-  const friendlyBasket = basket.map(v => ({
+  const friendlyBasket = basket.items.map(v => ({
     name: menu.categories[v.category].dishes[v.dish].name,
     price: menu.categories[v.category].dishes[v.dish].price
   }));
 
   const total = friendlyBasket.reduce((acc, curr) => acc + curr.price, 0);
 
-  res.render('order/status', {total: total, reason: 'UL-LOL-TEST', account: process.env.PAYPAL_ACC, basket: friendlyBasket});
+  res.render('order/status', {total: total, reason: basket.reason, account: process.env.PAYPAL_ACC, basket: friendlyBasket});
 });
 
 module.exports = router;

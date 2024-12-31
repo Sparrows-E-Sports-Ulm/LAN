@@ -6,8 +6,21 @@ const logger = require('morgan');
 const { Edge } = require('edge.js');
 const iconify = require('edge-iconify');
 const heroIcons = require('@iconify-json/heroicons').icons;
-//TODO: Use connect-mongo for session storage
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 
+
+
+// Setup Database Connection
+mongoose.connect('mongodb://localhost:27017/orders');
+mongoose.connection.once('open', () => {
+    console.log('Connected to Database!');
+});
+mongoose.connection.on("error", (err) => {
+    console.error(`Database Connection Error: ${err}`);
+});
+
+// Setup Express
 const app = express();
 
 // Setup edge for the view engine
@@ -24,10 +37,15 @@ app.set('view engine', 'edge');
 
 // Setup Middleware
 app.use(session({
-    resave: true,
-    saveUninitialized: true,
-    secret: process.env.COOKIE_SECRET
-}))
+    secret: process.env.COOKIE_SECRET,
+    cookie: {maxAge: new Date(253402300000000)}, // Never Expire
+    saveUninitialized: false,
+    resave: false,
+    store: MongoStore.create({
+        client: mongoose.connection.getClient(),
+        dbName: 'orders'
+    })
+}));
 app.use(logger('dev'));
 app.use(express.json());
 
