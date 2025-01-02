@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 
 
-
 // Setup Database Connection
 mongoose.connect('mongodb://localhost:27017/orders');
 mongoose.connection.once('open', () => {
@@ -64,4 +63,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!')
 });
 
-module.exports = app;
+app.listen(process.env.PORT, () => {
+    console.log(`Running Web Interface on port ${process.env.PORT}`)
+});
+
