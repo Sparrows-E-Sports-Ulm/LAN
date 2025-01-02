@@ -9,7 +9,6 @@ const heroIcons = require('@iconify-json/heroicons').icons;
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 
-
 // Setup Database Connection
 mongoose.connect('mongodb://localhost:27017/orders');
 mongoose.connection.once('open', () => {
@@ -52,10 +51,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Setup Routes
-const indexRouter = require('./routes/index');
-const ordersRouter = require('./routes/order'); 
-app.use('/', indexRouter);
-app.use('/order', ordersRouter);
+app.use('/',      require('./routes/index'));
+app.use('/order', require('./routes/order'));
 
 // Setup Error Handlers
 app.use((err, req, res, next) => {
@@ -63,7 +60,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!')
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Running Web Interface on port ${process.env.PORT}`)
+app.listen(process.env.WEB_PORT, () => {
+    console.log(`Running Web Interface on port ${process.env.WEB_PORT}`)
 });
 
