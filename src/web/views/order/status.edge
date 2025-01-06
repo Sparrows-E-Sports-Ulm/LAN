@@ -31,7 +31,7 @@
 
             <div class="panel big">
                 <h1>Status</h1>
-                <h2 id="status-text" class="bad">Nicht Bezahlt</h2>
+                <h2 id="status-text" class="{{payed ? 'good' : 'bad'}}">{{payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</h2>
                 <p class="important">Bitte überweise <span>{{format.format(total)}}</span> mit dem Verwendungszweck <span>{{reason}}</span> auf das PayPal Konto <span>{{account}}</span></p>
             </div>
             

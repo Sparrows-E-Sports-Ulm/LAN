@@ -19,7 +19,7 @@ const basketSchema = new mongoose.Schema({
             required: true
         }
     }],
-    reason: {
+    code: {
         type: String,
         required: true
     }

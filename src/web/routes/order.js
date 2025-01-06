@@ -7,6 +7,23 @@ const asyncRoute = require('../util/async-wrapper');
 
 const BasketModel = require('../models/basket-model');
 
+async function jsonFetch(method, url, body) {
+  const rawResponse = await fetch(`http://127.0.0.1:${process.env.PAYMENT_SERVICE_PORT}/${url}`, {
+    method: method,
+    body: JSON.stringify(body),
+    headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
+    }
+  });
+
+  return {
+    status: rawResponse.status,
+    body: await rawResponse.json()
+  };
+}
+
+
 router.get('/', asyncRoute(async (req, res, next) => {
     const basket = await BasketModel.findById(req.session.basket)
     const items = basket ? basket.items : [];
@@ -33,36 +50,52 @@ router.post('/submit', asyncRoute(async (req, res, next) => {
     basket = new BasketModel();
   }
 
+  // Redirect to status page if already payed
   if (basket.payed) {
     res.redirect('/order/status');
     return;
   }
 
+  // Reject if the request does not conform to schema
   if (!validate(req.body, submitSchema, { required: true }).valid) {
     console.log(req.body);
     res.status(400).send('Bad Request');
     return;
   }
 
+  // Check if request only contains valid items
+  var total = 0.0;
   for (const item of req.body.basket) {
     if (menu.categories[item.category] === undefined || menu.categories[item.category].dishes[item.dish] === undefined) {
       res.status(400).send('Bad Request (Unknown Menu Item)');
       return;
     }
+
+    total += menu.categories[item.category].dishes[item.dish].price;
   }
 
+  // Create Payment and Payment Code
+  const response = await jsonFetch('post', 'api/payment/create', {amount: total});
+  if(response.status != 200) {
+    res.status(500).send(`Payment Service Error\n${JSON.stringify(response.body)}`);
+    return;
+  }
+
+  // Update Basket
   basket.name = req.body.name;
   basket.items = req.body.basket;
   basket.payed = false;
-  basket.reason = process.env.PAYPAL_PREFIX; //TODO: Gen reason
+  basket.code = response.body.code;
   await basket.save();
 
+  // Links Basket to Session 
   req.session.basket = basket._id;
 
   res.status(200).send();
 }));
 
 router.get('/status', asyncRoute(async (req, res, next) => {
+  // Get Basket
   const basket = await BasketModel.findById(req.session.basket);
 
   if (!basket || basket.length === 0) {
@@ -77,7 +110,14 @@ router.get('/status', asyncRoute(async (req, res, next) => {
 
   const total = friendlyBasket.reduce((acc, curr) => acc + curr.price, 0);
 
-  res.render('order/status', { total: total, reason: basket.reason, account: process.env.PAYPAL_ACC, basket: friendlyBasket });
+  // Get Payment Status
+  const response = await jsonFetch('post', 'api/payment/status', {code: basket.code});
+  if(response.status != 200) {
+    res.status(500).send(`Payment Service Error\n${JSON.stringify(response.body)}`);
+    return;
+  }
+
+  res.render('order/status', { total: total, reason: basket.code, account: process.env.PAYPAL_ACC, basket: friendlyBasket, payed: response.body.payed });
 }));
 
 module.exports = router;
