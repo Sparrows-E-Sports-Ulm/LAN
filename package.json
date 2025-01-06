@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "watch": "concurrently \"nodemon src/web/app.js\" \"nodemon src/payment-service/app.js\"",
-    "watch-ps": "nodemon src/payment-service/app.js"
+    "watch": "nodemon src/web/app.js"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.1",

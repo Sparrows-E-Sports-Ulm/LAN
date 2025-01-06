@@ -19,20 +19,20 @@
             <div class="panel small">
                 <h1>Bestellung</h1>    
                 <div class="summary">
-                    @each(item in basket)
+                    @each(item in basket.items)
                     <div>
-                        <p>{{item.name}}</p>
+                        <p>{{item.dish}}</p>
                         <p>{{format.format(item.price)}}</p>
                     </div>
                     @end
                 </div>
-                <p>Total: {{format.format(total)}}</p>
+                <p>Total: {{format.format(basket.total)}}</p>
             </div>
 
             <div class="panel big">
                 <h1>Status</h1>
-                <h2 id="status-text" class="{{payed ? 'good' : 'bad'}}">{{payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</h2>
-                <p class="important">Bitte überweise <span>{{format.format(total)}}</span> mit dem Verwendungszweck <span>{{reason}}</span> auf das PayPal Konto <span>{{account}}</span></p>
+                <h2 id="status-text" class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</h2>
+                <p class="important">Bitte überweise <span>{{format.format(basket.total)}}</span> mit dem Verwendungszweck <span>{{basket.code}}</span> auf das PayPal Konto <span>{{account}}</span></p>
             </div>
             
         </div>

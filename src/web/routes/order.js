@@ -4,25 +4,8 @@ const menu = require('../models/vabene.json');
 const validate = require('jsonschema').validate;
 const submitSchema = require('../models/order-submit-schema.json');
 const asyncRoute = require('../util/async-wrapper');
-
+const paymentService = require('../services/payment-service');
 const BasketModel = require('../models/basket-model');
-
-async function jsonFetch(method, url, body) {
-  const rawResponse = await fetch(`http://127.0.0.1:${process.env.PAYMENT_SERVICE_PORT}/${url}`, {
-    method: method,
-    body: JSON.stringify(body),
-    headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-    }
-  });
-
-  return {
-    status: rawResponse.status,
-    body: await rawResponse.json()
-  };
-}
-
 
 router.get('/', asyncRoute(async (req, res, next) => {
     const basket = await BasketModel.findById(req.session.basket)
@@ -33,15 +16,7 @@ router.get('/', asyncRoute(async (req, res, next) => {
       return;
     }
 
-    const friendlyBasket = items.map(v => ({
-      dishIndex: v.dish,
-      catIndex: v.category,
-      category: menu.categories[v.category].name,
-      dish: menu.categories[v.category].dishes[v.dish].name,
-      price: menu.categories[v.category].dishes[v.dish].price
-    }));
-
-    res.render('order/order', { menu: menu, basket: friendlyBasket });
+    res.render('order/order', { menu: menu, basket: items });
 }));
 
 router.post('/submit', asyncRoute(async (req, res, next) => {
@@ -74,18 +49,20 @@ router.post('/submit', asyncRoute(async (req, res, next) => {
     total += menu.categories[item.category].dishes[item.dish].price;
   }
 
-  // Create Payment and Payment Code
-  const response = await jsonFetch('post', 'api/payment/create', {amount: total});
-  if(response.status != 200) {
-    res.status(500).send(`Payment Service Error\n${JSON.stringify(response.body)}`);
-    return;
-  }
-
   // Update Basket
+  const extendedBasket = req.body.basket.map(v => ({
+    categoryId: v.category,
+    dishId: v.dish,
+    category: menu.categories[v.category].name,
+    dish: menu.categories[v.category].dishes[v.dish].name,
+    price: menu.categories[v.category].dishes[v.dish].price
+  }));
+
   basket.name = req.body.name;
-  basket.items = req.body.basket;
+  basket.items = extendedBasket;
   basket.payed = false;
-  basket.code = response.body.code;
+  basket.code = paymentService.createCode();
+  basket.total = total;
   await basket.save();
 
   // Links Basket to Session 
@@ -103,21 +80,7 @@ router.get('/status', asyncRoute(async (req, res, next) => {
     return;
   }
 
-  const friendlyBasket = basket.items.map(v => ({
-    name: menu.categories[v.category].dishes[v.dish].name,
-    price: menu.categories[v.category].dishes[v.dish].price
-  }));
-
-  const total = friendlyBasket.reduce((acc, curr) => acc + curr.price, 0);
-
-  // Get Payment Status
-  const response = await jsonFetch('post', 'api/payment/status', {code: basket.code});
-  if(response.status != 200) {
-    res.status(500).send(`Payment Service Error\n${JSON.stringify(response.body)}`);
-    return;
-  }
-
-  res.render('order/status', { total: total, reason: basket.code, account: process.env.PAYPAL_ACC, basket: friendlyBasket, payed: response.body.payed });
+  res.render('order/status', { basket: basket, account: process.env.PAYPAL_ACC });
 }));
 
 module.exports = router;

@@ -8,6 +8,7 @@ const iconify = require('edge-iconify');
 const heroIcons = require('@iconify-json/heroicons').icons;
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
+const paymentService = require('./services/payment-service');
 
 // Setup Database Connection
 mongoose.connect('mongodb://localhost:27017/orders');
@@ -17,6 +18,9 @@ mongoose.connection.once('open', () => {
 mongoose.connection.on("error", (err) => {
     console.error(`Database Connection Error: ${err}`);
 });
+
+// Setup Payment Service
+paymentService.setup();
 
 // Setup Express
 const app = express();
@@ -53,6 +57,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup Routes
 app.use('/',      require('./routes/index'));
 app.use('/order', require('./routes/order'));
+app.use('/admin', require('./routes/admin'));
+
 
 // Setup Error Handlers
 app.use((err, req, res, next) => {

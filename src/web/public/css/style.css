@@ -120,3 +120,15 @@ noscript {
   align-items: center;
   justify-content: center;
 } 
+
+.bad {
+  color: #e36a00 !important;
+}
+
+.badbg {
+  background-color: #e36a00 !important;
+}
+
+.goodbg {
+  background-color: #6e83bb !important;
+}

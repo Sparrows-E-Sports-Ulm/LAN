@@ -6,12 +6,38 @@
     <meta charset="utf-8">
     <title>UULM LAN</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/status.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 
 <body>
-    <header>
-        <h1>UULM LAN</h1>
-    </header>    
+
+    <div class="container">
+        <div class="header-row">
+            <header>
+                <h1>UULM LAN</h1>
+            </header>            
+        </div>
+
+        <div class="main-row">
+            <div class="list">
+
+                @each(basket in baskets)
+                    <div class="order-container">
+                        <div class="{{basket.payed ? 'goodbg' : 'badbg'}}"> </div>
+                        <div class="left"> 
+                            <span>{{basket.name}}</span>
+                            <span>Total: {{format.format(basket.total)}}</span>
+                            <span>{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</span>
+                        </div>
+                    </div>                   
+                @end
+
+            </div>
+        </div>
+
+        <div class="footer-row">
+            
+        </div>
+    </div>
 </body>
 </html>

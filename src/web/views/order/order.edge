@@ -71,7 +71,7 @@
 
     <script id="loader">
         @each(item in basket) 
-            addToBasket({{item.catIndex}}, '{{item.category}}', {{item.dishIndex}}, '{{item.dish}}', {{item.price}});
+            addToBasket({{item.categoryId}}, '{{item.category}}', {{item.dishId}}, '{{item.dish}}', {{item.price}});
         @end
 
         document.getElementById('loader').remove();

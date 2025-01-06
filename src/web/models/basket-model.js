@@ -9,12 +9,28 @@ const basketSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    total: {
+        type: Number,
+        required: true
+    },
     items: [{
-        category: {
+        categoryId: {
             type: Number,
             required: true
         },
+        dishId: {
+            type: Number,
+            required: true
+        },
+        category: {
+            type: String,
+            required: true
+        },
         dish: {
+            type: String,
+            required: true
+        },
+        price: {
             type: Number,
             required: true
         }
