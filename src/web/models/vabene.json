@@ -1,41 +1,6 @@
 {
     "categories": [
         {
-            "name": "Antipasti",
-            "dishes": [
-                {
-                    "name": "Pizzabrot (\u00d8 32cm)",
-                    "description": "mit Tomatensauce",
-                    "price": 6.9
-                },
-                {
-                    "name": "Pizza Pane Bianca (\u00d8 32cm)",
-                    "description": "mit Tomatenst\u00fccken, Knoblauch und Rosmarin",
-                    "price": 7.5
-                },
-                {
-                    "name": "Antipasti-Teller (scharf)",
-                    "description": "mit Tomaten, Mozzarella, italienischem Rohschinken, Zucchini, Oliven, scharfer Peperoni-Salami, Basilikum, italienischem Hirtenk\u00e4se und frischem Panini",
-                    "price": 14.9
-                },
-                {
-                    "name": "Caprese",
-                    "description": "mit Tomaten, Basilikum, italienischem B\u00fcffelmozzarella und frischem Panini",
-                    "price": 11.9
-                },
-                {
-                    "name": "Vitello Tonnato",
-                    "description": "Kalbfleischstreifen mit Thunfischsauce, Oliven, Kapern und frischem Panini",
-                    "price": 14.5
-                },
-                {
-                    "name": "Bruschetta alla Casa",
-                    "description": "Pizzabrot mit Bruschetta-Tomaten und Rucola",
-                    "price": 8.5
-                }
-            ]
-        },
-        {
             "name": "Salate",
             "dishes": [
                 {
@@ -77,6 +42,36 @@
                     "name": "Insalate Vabene Veggie",
                     "description": "mit gr\u00fcnem Salat, Gurken, Bohnen, Oliven, Radieschen, Kirschtomaten, Mais, Mozzarella, Avocado, Artischocken und Petersilie, dazu frisches Panini",
                     "price": 13.9
+                }
+            ]
+        },
+        {
+            "name": "Antipasti",
+            "dishes": [
+                {
+                    "name": "Pizzabrot (\u00d8 32cm)",
+                    "description": "mit Tomatensauce",
+                    "price": 6.9
+                },
+                {
+                    "name": "Pizza Pane Bianca (\u00d8 32cm)",
+                    "description": "mit Tomatenst\u00fccken, Knoblauch und Rosmarin",
+                    "price": 7.5
+                },
+                {
+                    "name": "Antipasti-Teller (scharf)",
+                    "description": "mit Tomaten, Mozzarella, italienischem Rohschinken, Zucchini, Oliven, scharfer Peperoni-Salami, Basilikum, italienischem Hirtenk\u00e4se und frischem Panini",
+                    "price": 14.9
+                },
+                {
+                    "name": "Vitello Tonnato",
+                    "description": "Kalbfleischstreifen mit Thunfischsauce, Oliven, Kapern und frischem Panini",
+                    "price": 14.5
+                },
+                {
+                    "name": "Bruschetta alla Casa",
+                    "description": "Pizzabrot mit Bruschetta-Tomaten und Rucola",
+                    "price": 8.5
                 }
             ]
         },

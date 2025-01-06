@@ -3,6 +3,7 @@ const { ImapFlow } = require('imapflow');
 const BasketModel = require('../models/basket-model');
 const simpleParser = require('mailparser').simpleParser;
 const crypto = require('crypto');
+const CODE_LENGTH = process.env.PAYPAL_PREFIX.length + 6;
 
 function createPaymentCode() {
     return process.env.PAYPAL_PREFIX + crypto.randomBytes(3).toString('hex').toUpperCase();
@@ -38,7 +39,10 @@ function setupMailHandler() {
         if (!codeMatches || codeMatches.length < 2) { return; }
         const code = codeMatches[1];
 
-        if (code.length != CODE_LENGTH) { return; }
+        if (code.length != CODE_LENGTH) { 
+            console.error(`Invalid Code Length: ${code}`);
+            return; 
+        }
 
         // Find Payment
         const basket = await BasketModel.findOne({ code: code });

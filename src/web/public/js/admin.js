@@ -4,5 +4,7 @@ async function deleteAll() {
         if(res.status != 200) {
             alert(await res.text());
         }
+        location.reload();
     }
 }
+
