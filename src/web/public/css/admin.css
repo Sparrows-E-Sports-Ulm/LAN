@@ -27,7 +27,12 @@
 }
 
 .footer-row {
+    padding: var(--margin);
+}
 
+.footer-row > h2 {
+    display: inline;
+    margin-right: calc(var(--margin)/2);
 }
 
 .order-container {

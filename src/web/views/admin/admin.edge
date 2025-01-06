@@ -30,7 +30,7 @@
                     <div class="order-container">
                         <div class="{{basket.payed ? 'goodbg' : 'badbg'}} indicator"></div>
                         <span>{{basket.name}}</span>
-                        <span>Total: {{format.format(basket.total)}}</span>
+                        <span>Gesamt: {{format.format(basket.total)}}</span>
                         <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</span>
                         <div></div>
                         <button title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
@@ -44,7 +44,8 @@
         </div>
 
         <div class="footer-row">
-            
+            <h2>Bezahlt: {{numberOfPayed}}/{{numberOfOrders}}</h2>
+            <h2>Gesamt: {{format.format(total)}}</h2>
         </div>
     </div>
 

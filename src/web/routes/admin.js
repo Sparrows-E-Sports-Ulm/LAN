@@ -5,7 +5,10 @@ const asyncRoute = require('../util/async-wrapper');
 
 router.get('/', asyncRoute(async (req, res, next) => {
   const baskets = await BasketModel.find();
-  res.render('admin/admin', { baskets: baskets });
+  const total = baskets.reduce((v, c) => v + c.total, 0.0);
+  const payed = baskets.filter(b => b.payed).length;
+
+  res.render('admin/admin', { baskets: baskets, total: total, numberOfOrders: baskets.length, numberOfPayed: payed });
 }));
 
 router.delete('/delete', asyncRoute(async (req, res, next) => {
