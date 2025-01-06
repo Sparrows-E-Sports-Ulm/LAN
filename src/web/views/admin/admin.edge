@@ -15,7 +15,12 @@
         <div class="header-row">
             <header>
                 <h1>UULM LAN</h1>
-            </header>            
+            </header>      
+            <div>
+                <a class="button" href="/admin/download" target="_blank" download="order.txt">{{ svg('heroicons:arrow-down-on-square') }}</a>
+                <button>{{ svg('heroicons:lock-open') }}</button>
+                <button>{{ svg('heroicons:trash') }}</button>
+            </div>      
         </div>
 
         <div class="main-row">
@@ -23,12 +28,15 @@
 
                 @each(basket in baskets)
                     <div class="order-container">
-                        <div class="{{basket.payed ? 'goodbg' : 'badbg'}}"> </div>
-                        <div class="left"> 
-                            <span>{{basket.name}}</span>
-                            <span>Total: {{format.format(basket.total)}}</span>
-                            <span>{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</span>
-                        </div>
+                        <div class="{{basket.payed ? 'goodbg' : 'badbg'}} indicator"></div>
+                        <span>{{basket.name}}</span>
+                        <span>Total: {{format.format(basket.total)}}</span>
+                        <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</span>
+                        <div></div>
+                        <button title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
+                        <button title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
+                        <button title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
+                        <button title="Löschen">{{ svg('heroicons:trash') }}</button>
                     </div>                   
                 @end
 

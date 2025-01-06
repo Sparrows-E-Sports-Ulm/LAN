@@ -9,7 +9,17 @@
 }
 
 .header-row {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+}
 
+.header-row > div {
+    display: flex;
+    gap: calc(var(--margin)/2);
+    margin: var(--margin);
 }
 
 .main-row {
@@ -21,22 +31,38 @@
 }
 
 .order-container {
-    margin: calc(var(--margin)/2);
+    margin: var(--margin);
+    margin-bottom: calc(var(--margin)/2);
+    margin-top: calc(var(--margin)/2);
     background-color: var(--primary);
     border-radius: 8px;
     border: 1px solid var(--accent);
     height: 64px;
-    display: flex;
-    align-items: center;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 0.4fr repeat(3, 2fr) 5fr repeat(4, 0.5fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
 }
 
 .order-container > span {
-    margin: calc(var(--margin)/2);
+    align-self: center;
 }
 
-.order-container > div {
-    height: 100%;
-    width: 32px;
-    display: inline-block;
+.order-container > button {
+    background-color: var(--primary);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+}
+
+.order-container > button:hover {
+    background-color: var(--accent-light);
+}
+
+.order-container > .indicator {
+    margin-right: calc(var(--margin)/2);
 }
