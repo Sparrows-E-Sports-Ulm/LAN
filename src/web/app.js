@@ -9,6 +9,7 @@ const heroIcons = require('@iconify-json/heroicons').icons;
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 const paymentService = require('./services/payment-service');
+const basicAuth = require('express-basic-auth');
 
 // Setup Database Connection
 mongoose.connect('mongodb://localhost:27017/orders');
@@ -57,7 +58,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup Routes
 app.use('/',      require('./routes/index'));
 app.use('/order', require('./routes/order'));
-app.use('/admin', require('./routes/admin'));
+app.use('/admin', basicAuth({
+    users: { 'admin': process.env.ADMIN_PWD},
+    challenge: true
+}), require('./routes/admin'));
 
 
 // Setup Error Handlers

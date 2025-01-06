@@ -8,6 +8,11 @@ router.get('/', asyncRoute(async (req, res, next) => {
   res.render('admin/admin', { baskets: baskets });
 }));
 
+router.delete('/delete', asyncRoute(async (req, res, next) => {
+  await BasketModel.deleteMany();
+  res.send('OK');
+}));
+
 router.get('/download', asyncRoute(async (req, res, next) => {
   const baskets = await BasketModel.find();
 

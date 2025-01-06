@@ -19,7 +19,7 @@
             <div>
                 <a class="button" href="/admin/download" target="_blank" download="order.txt">{{ svg('heroicons:arrow-down-on-square') }}</a>
                 <button>{{ svg('heroicons:lock-open') }}</button>
-                <button>{{ svg('heroicons:trash') }}</button>
+                <button onclick="deleteAll()">{{ svg('heroicons:trash') }}</button>
             </div>      
         </div>
 
@@ -47,5 +47,7 @@
             
         </div>
     </div>
+
+    <script src="/js/admin.js"></script>
 </body>
 </html>
