@@ -1,3 +1,7 @@
+mongodb-data
+
+.env.*
+
 # Logs
 logs
 *.log

@@ -12,7 +12,7 @@ const basicAuth = require('express-basic-auth');
 const logger = require('./util/logger');
 
 // Setup Database Connection
-mongoose.connect('mongodb://localhost:27017/orders');
+mongoose.connect(process.env.DB_CONNECTING_STR);
 mongoose.connection.once('open', () => {
     logger.log('[DB]: Connected to Database!');
 });

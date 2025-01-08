@@ -287,16 +287,6 @@
                     "name": "Party-Pizza Margherita",
                     "description": "",
                     "price": 28.0
-                },
-                {
-                    "name": "Party-Pizza Uno",
-                    "description": "mit vier Zutaten nach Wahl",
-                    "price": 33.5
-                },
-                {
-                    "name": "Party-Pizza Due",
-                    "description": "mit acht Zutaten nach Wahl",
-                    "price": 37.0
                 }
             ]
         },
@@ -462,66 +452,6 @@
                     "name": "Paulaner Hefe-Wei\u00dfbier alkoholfrei 0,5l",
                     "description": "",
                     "price": 3.42
-                }
-            ]
-        },
-        {
-            "name": "Alkoholische Getr\u00e4nke",
-            "dishes": [
-                {
-                    "name": "Hefeweizen 0,5l",
-                    "description": "",
-                    "price": 3.42
-                },
-                {
-                    "name": "Radler 0,5l",
-                    "description": "",
-                    "price": 3.42
-                },
-                {
-                    "name": "Paulaner M\u00fcnchner hell 0,5l",
-                    "description": "",
-                    "price": 3.42
-                },
-                {
-                    "name": "Paulaner Hefe-Wei\u00dfbier naturtr\u00fcb 0,5l",
-                    "description": "",
-                    "price": 3.42
-                },
-                {
-                    "name": "Paulaner Natur Radler 0,5l",
-                    "description": "",
-                    "price": 3.42
-                },
-                {
-                    "name": "Pagus Bisano Lugana DOC 0,75l",
-                    "description": "der Pagus Bisano Lugana DOC kommt strohgelb, mit goldenen Reflexen, ins Glas. Ein fruchtig-hefiges Bouquet weist auf einen jungen, frischen Fr\u00fchlingsboten hin.",
-                    "price": 17.5
-                },
-                {
-                    "name": "I Tratturi Bianco Salento IGT 0,75l",
-                    "description": "von Feudi di San Marzano aus Apulien, aus 95% Verdeca- und 5% Malvasia Bianca Trauben gekeltert. Seine Farbe ist strohgelb mit goldenen Reflexen. Sein Bouquet ist intensiv und erinnert an reife Pfirsiche mit Noten von Mandarinen.",
-                    "price": 13.9
-                },
-                {
-                    "name": "Rosso Passo Veneto IGT 0,75l",
-                    "description": "der Rosso Passo ist einer der beliebtesten Rotweine der Cantine Lenotti aus Bardolino. Eine wunderbar harmonische Cuv\u00e9e aus Merlot und Sangiovese. Ein typischer Roter vom Gardasee und ein echter Allrounder.",
-                    "price": 14.9
-                },
-                {
-                    "name": "Pagus Bisano Valpolicella Ripasso DOC 0,75l",
-                    "description": "in kr\u00e4ftig rubinroter Farbe erf\u00fcllt der Pagus Bisano Valpolicella Ripasso DOC Dein Glas. Sofort entfaltet sich ein fein strukturiertes Bouquet, das an dunkle, wilde Beeren denken l\u00e4sst.",
-                    "price": 18.0
-                },
-                {
-                    "name": "Pagus Bisano Bardolino DOC 0,75l",
-                    "description": "in leuchtend rubinrotem Kleid beehrt der Pagus Bisano Bardolino DOC Dein Glas. Der Nase offenbart sich eine zarte Aromatik nach Kirschen und roten Beeren.",
-                    "price": 16.0
-                },
-                {
-                    "name": "Pagus Bisano Soave DOC 0,75l",
-                    "description": "frischer, fruchtiger Wein, sch\u00f6ner Schmelz, langer Abgang.",
-                    "price": 16.0
                 }
             ]
         }
