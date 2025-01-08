@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const logger = require('morgan');
 const { Edge } = require('edge.js');
 const iconify = require('edge-iconify');
 const heroIcons = require('@iconify-json/heroicons').icons;
@@ -10,14 +9,15 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 const paymentService = require('./services/payment-service');
 const basicAuth = require('express-basic-auth');
+const logger = require('./util/logger');
 
 // Setup Database Connection
 mongoose.connect('mongodb://localhost:27017/orders');
 mongoose.connection.once('open', () => {
-    console.log('Connected to Database!');
+    logger.log('[DB]: Connected to Database!');
 });
 mongoose.connection.on("error", (err) => {
-    console.error(`Database Connection Error: ${err}`);
+    logger.err(`[DB]: Database Connection Error: ${err}`);
 });
 
 // Setup Payment Service
@@ -49,7 +49,8 @@ app.use(session({
         dbName: 'orders'
     })
 }));
-app.use(logger('dev'));
+
+//app.use(require('morgan')('dev'));
 app.use(express.json());
 
 // Setup Static Assets
@@ -66,11 +67,11 @@ app.use('/admin', basicAuth({
 
 // Setup Error Handlers
 app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
+    logger.err(`[WEB]: ${err.stack}`);
+    res.status(500).send('Something broke!');
 });
 
 app.listen(process.env.WEB_PORT, () => {
-    console.log(`Running Web Interface on port ${process.env.WEB_PORT}`)
+    logger.log(`[WEB]: Running Web Interface on port ${process.env.WEB_PORT}`);
 });
 
