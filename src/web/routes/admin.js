@@ -46,6 +46,18 @@ router.post('/lock', (req, res, next) => {
 });
 
 router.delete('/delete', asyncRoute(async (req, res, next) => {
+  if(req.body.code === undefined || typeof req.body.code !== 'string')  {
+    res.status(400).send('Bad Request (code)');
+    return;
+  }
+
+  await BasketModel.deleteOne({code: req.body.code});
+
+  res.send('OK');
+}));
+
+
+router.delete('/delete-all', asyncRoute(async (req, res, next) => {
   await BasketModel.deleteMany();
   res.send('OK');
 }));

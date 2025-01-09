@@ -71,3 +71,8 @@
 .order-container > .indicator {
     margin-right: calc(var(--margin)/2);
 }
+
+.search {
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+}

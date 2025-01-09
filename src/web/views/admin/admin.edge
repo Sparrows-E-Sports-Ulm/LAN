@@ -24,9 +24,7 @@
             </div>      
         </div>
 
-        <div class="search-row">
-            
-        </div>
+        <input class="search-row search" id="search" placeholder="Suchen">
 
         <div class="main-row">
             <div class="list">
@@ -42,7 +40,7 @@
                         <button title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
                         <button onclick="setPayed('{{basket.code}}', true)" title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
                         <button onclick="setPayed('{{basket.code}}', false)" title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
-                        <button title="Löschen">{{ svg('heroicons:trash') }}</button>
+                        <button onclick="deleteOne('{{basket.code}}', '{{basket.name}}')" title="Löschen">{{ svg('heroicons:trash') }}</button>
                     </div>                
                 @end
 
