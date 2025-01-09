@@ -111,5 +111,11 @@ function addToBasket(catIndex, category, dishIndex, dish, price) {
 function updateTotal() {
     const basket = document.getElementsByClassName('basket-item');
     const total = Array.prototype.reduce.call(basket, (acc, current) => acc + parseFloat(current.dataset.price), 0);
-    nextButton.innerText = `Weiter (${format.format(total)})`;
+    if (total == 0) {
+        nextButton.innerText = `Weiter`;
+        nextButton.disabled = true;
+    } else {
+        nextButton.innerText = `Weiter (${format.format(total)})`;
+        nextButton.disabled = false;
+    }
 }

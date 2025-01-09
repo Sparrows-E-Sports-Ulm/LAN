@@ -70,6 +70,10 @@ button:hover, .button:hover {
   background-color: var(--secondary);
 }
 
+button:disabled {
+  background-color: var(--primary);
+}
+
 input {
   padding: calc(var(--margin) * 0.5);
   color: var(--text);
