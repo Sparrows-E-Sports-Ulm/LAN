@@ -70,7 +70,7 @@ router.post('/submit', asyncRoute(async (req, res, next) => {
     price: menu.categories[v.category].dishes[v.dish].price
   }));
 
-  basket.name = req.body.name;
+  basket.name = req.body.name.replace(/[^\sa-zA-zöäüß]/g, '');
   basket.items = extendedBasket;
   basket.payed = false;
   basket.code = paymentService.createCode();
