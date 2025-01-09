@@ -1,7 +1,7 @@
 const searchInput = document.getElementById('search');
 searchInput.oninput = () => {
     const query = searchInput.value.toLowerCase();
-    const dishes = document.getElementsByClassName('order-container');
+    const dishes = document.getElementsByClassName('o-container');
 
     if (query.trim().length === 0) {
         for (const element of dishes) {
@@ -19,6 +19,10 @@ searchInput.oninput = () => {
     }
 }
 
+function toggleView(id) {
+    const element = document.getElementById(id);
+    element.style.display = element.style.display == 'none' ? 'block' : 'none'; 
+}
 
 async function deleteAll() {
     if (!confirm('Alle Bestellungen Löschen?')) {

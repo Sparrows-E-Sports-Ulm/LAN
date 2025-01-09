@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.panel > * {
+.panel>* {
     margin: var(--margin);
 }
 
@@ -37,7 +37,7 @@
     line-height: 40px;
 }
 
-.important > span {
+.important>span {
     background-color: var(--background);
     padding: 2px;
     border-radius: 4px;
@@ -45,11 +45,23 @@
     word-break: keep-all;
 }
 
+.important a:link {
+    color: var(--text);
+}
+
+.important a:visited {
+    color: var(--text);
+}
+
+.important a:hover {
+    color: var(--accent); 
+}
+
 .summary {
     overflow-y: scroll;
 }
 
-.summary > div {
+.summary>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,4 +69,8 @@
 
 .summary p {
     margin: 0;
+}
+
+#status-text {
+    margin-bottom: 0;
 }

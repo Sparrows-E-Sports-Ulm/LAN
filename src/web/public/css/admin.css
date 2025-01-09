@@ -35,10 +35,14 @@
     margin-right: calc(var(--margin)/2);
 }
 
-.order-container {
+
+.o-container {
     margin: var(--margin);
     margin-bottom: calc(var(--margin)/2);
-    margin-top: calc(var(--margin)/2);
+    margin-top: calc(var(--margin)/2);   
+}
+
+.order-container {
     background-color: var(--primary);
     border-radius: 8px;
     border: 1px solid var(--accent);
@@ -69,6 +73,22 @@
 }
 
 .order-container > .indicator {
+    margin-right: calc(var(--margin)/2);
+    width: calc(var(--margin)/2 - 2px);
+    border-right: 1px solid var(--accent);
+}
+
+.item-container {
+    background-color: var(--primary);
+    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--accent);
+    border-top: none;
+    width: calc(100% - var(--margin)*2);
+    margin: 0 auto;
+    padding: calc(var(--margin)/2);
+}
+
+.item-container > div > span {
     margin-right: calc(var(--margin)/2);
 }
 

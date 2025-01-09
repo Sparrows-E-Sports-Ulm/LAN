@@ -31,8 +31,11 @@
 
             <div class="panel big">
                 <h1>Status</h1>
-                <h2 id="status-text" class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</h2>
-                <p class="important">Bitte überweise <span>{{format.format(basket.total)}}</span> mit dem Verwendungszweck <span>{{basket.code}}</span> auf das PayPal Konto <span>{{account}}</span></p>
+                <div>
+                    <h2 id="status-text" class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</h2>
+                    <span>(Seite neu laden zum aktualisieren)</span>
+                </div>
+                <p class="important">Bitte überweise <span>{{format.format(basket.total)}}</span> mit dem Verwendungszweck <span>{{basket.code}}</span> auf das PayPal Konto <span><a target="_blank" rel="noopener noreferrer" href="https://paypal.me/{{account.replace('@','')}}/{{basket.total.toString().replace('.',',')}}">{{account}}</a></span></p>
             </div>
             
         </div>

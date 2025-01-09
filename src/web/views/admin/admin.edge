@@ -30,18 +30,28 @@
             <div class="list">
 
                 @each(basket in baskets)
-                    <div class="order-container">
-                        <div class="{{basket.payed ? 'goodbg' : 'badbg'}} indicator"></div>
-                        <span>{{basket.name}}</span>
-                        <span>Gesamt: {{format.format(basket.total)}}</span>
-                        <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}} {{basket.manuallySetPayed ? '(manuell)' : ''}}</span>
-                        <span>{{basket.code}}</span>
-                        <div></div>
-                        <button title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
-                        <button onclick="setPayed('{{basket.code}}', true)" title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
-                        <button onclick="setPayed('{{basket.code}}', false)" title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
-                        <button onclick="deleteOne('{{basket.code}}', '{{basket.name}}')" title="Löschen">{{ svg('heroicons:trash') }}</button>
-                    </div>                
+                    <div class="o-container">
+                        <div class="order-container">
+                            <div class="{{basket.payed ? 'goodbg' : 'badbg'}} indicator"></div>
+                            <span>{{basket.name}}</span>
+                            <span>Gesamt: {{format.format(basket.total)}}</span>
+                            <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}} {{basket.manuallySetPayed ? '(manuell)' : ''}}</span>
+                            <span>{{basket.code}}</span>
+                            <div></div>
+                            <button onclick="toggleView('basket-{{basket.code}}')" title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
+                            <button onclick="setPayed('{{basket.code}}', true)" title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
+                            <button onclick="setPayed('{{basket.code}}', false)" title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
+                            <button onclick="deleteOne('{{basket.code}}', '{{basket.name}}')" title="Löschen">{{ svg('heroicons:trash') }}</button>
+                        </div>  
+                        <div id="basket-{{basket.code}}" class="item-container" style="display:none">
+                            @each(item in basket.items)
+                                <div>
+                                    <span>{{format.format(item.price)}}</span>
+                                    <span>{{item.dish}}</span> 
+                                </div>
+                            @end
+                        </div>  
+                    </div>            
                 @end
 
             </div>
