@@ -18,9 +18,14 @@
             </header>      
             <div>
                 <a class="button" href="/admin/download" target="_blank" download="order.txt">{{ svg('heroicons:arrow-down-on-square') }}</a>
-                <button>{{ svg('heroicons:lock-open') }}</button>
+                <button id="lock-enable"  onclick="setLock(true)" {{locked ? 'disabled' : ''}} >{{ svg('heroicons:lock-closed') }}</button>
+                <button id="lock-disable" onclick="setLock(false)" {{locked ? '' : 'disabled'}} >{{ svg('heroicons:lock-open') }}</button>
                 <button onclick="deleteAll()">{{ svg('heroicons:trash') }}</button>
             </div>      
+        </div>
+
+        <div class="search-row">
+            
         </div>
 
         <div class="main-row">
@@ -31,12 +36,12 @@
                         <div class="{{basket.payed ? 'goodbg' : 'badbg'}} indicator"></div>
                         <span>{{basket.name}}</span>
                         <span>Gesamt: {{format.format(basket.total)}}</span>
-                        <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</span>
+                        <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}} {{basket.manuallySetPayed ? '(manuell)' : ''}}</span>
                         <span>{{basket.code}}</span>
                         <div></div>
                         <button title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
-                        <button title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
-                        <button title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
+                        <button onclick="setPayed('{{basket.code}}', true)" title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
+                        <button onclick="setPayed('{{basket.code}}', false)" title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
                         <button title="Löschen">{{ svg('heroicons:trash') }}</button>
                     </div>                
                 @end

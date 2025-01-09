@@ -6,10 +6,17 @@ const submitSchema = require('../models/order-submit-schema.json');
 const asyncRoute = require('../util/async-wrapper');
 const paymentService = require('../services/payment-service');
 const BasketModel = require('../models/basket-model');
+const config = require('../util/config');
+
 
 router.get('/', asyncRoute(async (req, res, next) => {
     const basket = await BasketModel.findById(req.session.basket)
     const items = basket ? basket.items : [];
+
+    if(config.ordersLocked) {
+      res.render('order/locked', {hasBasket: !!basket});
+      return;
+    }
 
     if (basket && basket.payed) {
       res.redirect('/order/status');
@@ -20,6 +27,11 @@ router.get('/', asyncRoute(async (req, res, next) => {
 }));
 
 router.post('/submit', asyncRoute(async (req, res, next) => {
+  if(config.ordersLocked) {
+    res.status(400).send('Die Bestellungen sind gesperrt.');
+    return;
+  }
+
   let basket = await BasketModel.findById(req.session.basket);
   if (!basket) {
     basket = new BasketModel();

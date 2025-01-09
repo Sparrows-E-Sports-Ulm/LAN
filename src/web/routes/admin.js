@@ -2,14 +2,48 @@ var express = require('express');
 var router = express.Router();
 const BasketModel = require('../models/basket-model');
 const asyncRoute = require('../util/async-wrapper');
+const config = require('../util/config');
 
 router.get('/', asyncRoute(async (req, res, next) => {
   const baskets = await BasketModel.find();
   const total = baskets.reduce((v, c) => v + c.total, 0.0);
   const payed = baskets.filter(b => b.payed).length;
 
-  res.render('admin/admin', { baskets: baskets, total: total, numberOfOrders: baskets.length, numberOfPayed: payed });
+  res.render('admin/admin', { baskets: baskets, total: total, numberOfOrders: baskets.length, numberOfPayed: payed, locked: config.ordersLocked });
 }));
+
+router.post('/set-payed', asyncRoute(async (req, res, next) => {
+  if(req.body.code === undefined || typeof req.body.code !== 'string')  {
+    res.status(400).send('Bad Request (code)');
+    return;
+  }
+
+  if(req.body.payed === undefined || typeof req.body.payed !== 'boolean')  {
+    res.status(400).send('Bad Request (payed)');
+    return;
+  }
+
+  const basket = await BasketModel.findOne({code: req.body.code});
+  if(!basket) {
+    res.status(400).send(`Unknown Code ${req.body.code}`);
+  }
+
+  basket.payed = req.body.payed;
+  basket.manuallySetPayed = true;
+  basket.save();
+
+  res.send();
+}));
+
+router.post('/lock', (req, res, next) => {
+  if(req.body.locked === undefined || typeof req.body.locked !== 'boolean')  {
+    res.status(400).send('Bad Request');
+    return;
+  }
+
+  config.ordersLocked = req.body.locked;
+  res.send();
+});
 
 router.delete('/delete', asyncRoute(async (req, res, next) => {
   await BasketModel.deleteMany();

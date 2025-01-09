@@ -1,0 +1,32 @@
+@let(format = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}))
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UULM LAN</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/status.css">
+</head>
+
+<body>
+    <header>
+        <h1>UULM LAN</h1>
+    </header>    
+
+    <div class="center-absolute">
+        <div class="row">
+            <div class="panel small">
+                <h1 style="margin-bottom: 0;">Die Bestellungen sind gesperrt</h1>
+                @if(hasBasket) 
+                    <span>Du kannst <a href="/order/status">hier</a> dein Bestellstatus anschauen</span>
+                @else
+                    <span>Schau später nochmal vorbei</span>
+                @end
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

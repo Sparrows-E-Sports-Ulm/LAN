@@ -9,6 +9,9 @@ const basketSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    manuallySetPayed: {
+        type: Boolean
+    },
     total: {
         type: Number,
         required: true
