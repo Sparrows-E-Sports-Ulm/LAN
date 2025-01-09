@@ -150,7 +150,26 @@ header>h1 {
 }
 
 #basket > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    margin-bottom: 2px;
+}
+
+#basket > div > span:nth-child(2) {
+    text-align: right;
+}
+
+#basket > div > button {
+    background-color: var(--primary);
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    margin-left: auto;
+}
+
+#basket > div > button:hover {
+    background-color: var(--secondary);
 }

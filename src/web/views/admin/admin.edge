@@ -32,12 +32,13 @@
                         <span>{{basket.name}}</span>
                         <span>Gesamt: {{format.format(basket.total)}}</span>
                         <span class="{{basket.payed ? 'good' : 'bad'}}">{{basket.payed ? 'Bezahlt' : 'Nicht Bezahlt'}}</span>
+                        <span>{{basket.code}}</span>
                         <div></div>
                         <button title="Bestellung Anzeigen">{{ svg('heroicons:information-circle') }}</button>
                         <button title="Als 'Bezahlt' markieren">{{ svg('heroicons:check-20-solid') }}</button>
                         <button title="Als 'Nicht Bezahlt' markieren">{{ svg('heroicons:x-mark-20-solid') }}</button>
                         <button title="Löschen">{{ svg('heroicons:trash') }}</button>
-                    </div>                   
+                    </div>                
                 @end
 
             </div>

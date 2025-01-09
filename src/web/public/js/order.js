@@ -1,7 +1,6 @@
 "use strict";
 
 const format = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
-const basket = [];
 const basketView = document.getElementById('basket');
 const nextButton = document.getElementById('next-btn');
 const searchInput = document.getElementById('search');
@@ -9,6 +8,7 @@ const regisisteterView = document.getElementById('register');
 const regNextButton = document.getElementById('reg-next-btn');
 const nameTb = document.getElementById('name');
 const lastNameTb = document.getElementById('last-name');
+const trashIcon = document.getElementById('trash-icon').children[0];
 
 searchInput.oninput = () => {
     const query = searchInput.value.toLowerCase();
@@ -44,11 +44,13 @@ regNextButton.onclick = async () => {
     regNextButton.disabled = true;
     regNextButton.innerHTML = "...";
 
+    const basket = Array.prototype.map.call(document.getElementsByClassName('basket-item'), (e) => ({
+        category: parseInt(e.dataset.catIndex),
+        dish: parseInt(e.dataset.dishIndex)
+    }));
+
     const body = {
-        basket: basket.map(v => ({
-            category: v.catIndex,
-            dish: v.dishIndex
-        })),
+        basket: basket,
         name: `${nameTb.value} ${lastNameTb.value}`
     };
 
@@ -77,21 +79,37 @@ document.getElementById('reg-back-btn').onclick = () => {
 }
 
 function addToBasket(catIndex, category, dishIndex, dish, price) {
-    basket.push({ catIndex: catIndex, category: category, dishIndex: dishIndex, dish: dish, price: price });
     const containerView = document.createElement('div');
+    containerView.classList.add('basket-item');
+    containerView.dataset.catIndex = catIndex;
+    containerView.dataset.category = category;
+    containerView.dataset.dishIndex = dishIndex;
+    containerView.dataset.dish = dish;
+    containerView.dataset.price = price;
+
     const nameView = document.createElement('span');
     const priceView = document.createElement('span');
+    const delButton = document.createElement('button');
+    delButton.appendChild(trashIcon.cloneNode(true));
 
     nameView.innerText = dish;
     priceView.innerText = format.format(price);
 
     containerView.appendChild(nameView);
     containerView.appendChild(priceView);
+    containerView.appendChild(delButton);
     basketView.appendChild(containerView);
 
-    nextButton.innerText = `Weiter (${format.format(basket.reduce((acc, current) => acc + current.price, 0))})`;
+    delButton.onclick = () => {
+        containerView.remove();
+        updateTotal();
+    }
+
+    updateTotal();
 }
 
-function removeFromBasket(category, dish) {
-
+function updateTotal() {
+    const basket = document.getElementsByClassName('basket-item');
+    const total = Array.prototype.reduce.call(basket, (acc, current) => acc + parseFloat(current.dataset.price), 0);
+    nextButton.innerText = `Weiter (${format.format(total)})`;
 }
