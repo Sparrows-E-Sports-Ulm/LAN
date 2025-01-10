@@ -10,6 +10,8 @@ const MongoStore = require('connect-mongo');
 const paymentService = require('./services/payment-service');
 const basicAuth = require('express-basic-auth');
 const logger = require('./util/logger');
+const ipRangeCheck = require('ip-range-check');
+
 
 // Setup Database Connection
 mongoose.connect(process.env.DB_CONNECTING_STR);
@@ -25,6 +27,25 @@ paymentService.setup();
 
 // Setup Express
 const app = express();
+
+app.enable('trust proxy');
+
+// IP Range Check
+const allowedRanges = JSON.parse(process.env.ALLOWED_IP_RANGES);
+function checkIp(req, res, next) {
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const isAllowed = allowedRanges.some(range => ipRangeCheck(ip, range));
+
+    if(isAllowed) {
+        next();
+    } else {
+        logger.warn(`Request from ${ip} was blocked`);
+        res.status(403).send('Forbidden');
+    }
+}
+
+app.use(checkIp);
+
 
 // Setup edge for the view engine
 const edge = Edge.create({cache: process.env.NODE_ENV !== 'development'});
